@@ -2,7 +2,7 @@ class Ninja:
     def __init__(self, first_name, last_name, pet, treats, pet_food):
         self.first_name = first_name
         self.last_name = last_name
-        self.pet = Pet
+        self.pet = pet
         self.treast = treats
         self.pet_food = pet_food
     def walk(self):
@@ -22,11 +22,17 @@ class Pet:
         self.energy = energy
     def sleep(self):
         self.energy += 25
+        print("Pets Energy Increased by 25 while sleeping!")
+        print(f"Total Energy = {self.energy}")
     def eat(self):
         self.energy += 5
         self.health += 10
+        print("Pets Energy Increased by 5 and Health increased by 10 while eating!")
+        print(f"Total Health = {self.health} Total Energy = {self.energy}")
     def play(self):
         self.health +=5
+        print("Pets health increased by 5 while walking!")
+        print(f"Total Health = {self.health}")
     def noise(self):
         print(self.tricks)
 
