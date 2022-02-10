@@ -1,26 +1,17 @@
 from doctest import OutputChecker
-from flask import Flask  
+from flask import Flask, render_template
 app = Flask(__name__)    
-@app.route('/')          
-def hello_world():
-    return 'Hello World!' 
+@app.route('/play')          
+def index_one():
+    return render_template("index.html")
 
-@app.route('/dojo')
-def dojo():
-    return 'Dojo!'
+@app.route('/play/<int:num>')          
+def index_two(num):
+    return render_template("index.html", num=num)
 
-@app.route('/say/<string:name>')
-def say_hi(name):
-    return f'Hi {name.capitalize()}!'
-
-@app.route('/repeat/<int:num>/<string:word>')
-def repeat(num, word):
-    words = ''
-    for i in range(0,num):
-        words += f"<p>{word}</p>"
-    return words
-
-
+@app.route('/play/<int:num>/<string:color>')
+def index_three(num, color):
+    return render_template("index.html", num=num, color=color)
 if __name__=="__main__":   
     app.run(debug=True)    
 
