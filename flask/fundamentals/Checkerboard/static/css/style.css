@@ -1,0 +1,23 @@
+h1{
+    display:flex;
+    justify-content: center;
+}
+table{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+tr{
+    display:flex;
+}
+td{
+    height:50px;
+    width:50px;
+    margin:3px;
+}
+.block{
+    background-color: blue;
+}
+.second_block{
+    background-color: red;
+}
