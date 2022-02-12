@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex flex-column align-items-center">
+        <h1>Welcome to the Great Number Game!</h1>
+        <h2>I am thinking of a number between 1 and 100</h2>
+        <h3>Take a guess!!!</h3>
+        {% if session['rannum'] == session['guess']: %}
+            <h4 class="text-warning bg-success h-25 w-25 text-center">Correct</h4>
+            <a href="/destroy_session" class="btn btn-danger">Resest</a>
+        {% elif session['rannum'] > session['guess']: %}
+            <h4 class="text-warning bg-danger h-25 w-25 text-center">too low</h4>
+        {% elif session['rannum'] < session['guess']: %}
+            <h4 class="text-warning bg-danger h-25 w-25 text-center">too high</h4>
+        {% endif %}
+        <form action="/guess" method="post" class="bg-secondary p-4">
+            <input type="text" name="numguess" id="numguess">
+            <input type="submit" value="submit" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
