@@ -7,12 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>All users</h1>
+    <h1>User:</h1>
     {% for user in all_users %}
         <p>First Name: {{user.first_name}}</p>
         <p>Last Name: {{user.last_name}}</p>
         <p>Email: {{user.email}}</p>
         <p>Created at: {{user.created_at}}</p>
+        <a href="/users/{{user.id}}">Show</a>
+        <a href="/users/{{user.id}}/edit">Edit</a>
+        <a href="/users/{{user.id}}/destroy">Delete</a>
         <hr>
     {% endfor %}
     <a href="/users/new">Add a New User</a>
