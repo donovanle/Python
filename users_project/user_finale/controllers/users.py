@@ -1,6 +1,6 @@
 # burgers.py
 from user_finale import app
-from flask import render_template,redirect,request,session,flash
+from flask import render_template,redirect,request,session,flask
 from user_finale.models.user import User
 
 
