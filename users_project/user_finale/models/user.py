@@ -1,5 +1,4 @@
-
-from mysqlconnection import connectToMySQL
+from user_finale.config.mysqlconnection import connectToMySQL
 
 class User:
     def __init__( self , data ):
