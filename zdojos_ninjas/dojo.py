@@ -40,5 +40,5 @@ class Ninja():
     @classmethod
     def createninja(cls, data):
         query = "INSERT INTO ninjas (first_name, last_name, age, dojo_id, created_at, updated_at) " \
-            "VALUES (%(name)s, NOW(), NOW())"
+            "VALUES (%(first_name)s,%(last_name)s,%(age)s,%(dojo_id)s, NOW(), NOW())"
         return connectToMySQL('dojos_and_ninjas_schema').query_db(query, data)

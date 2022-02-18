@@ -16,9 +16,11 @@
         </form>
     </div>
     <div>
+        <h2>All Dojos</h2>
     {% for dojo in all_dojos %}
         <p><a href="/dojos/{{dojo.id}}">{{dojo.name}}</a></p>
     {% endfor %}
     </div>
+    <a href="/ninja">Add Ninja</a>
 </body>
 </html>
