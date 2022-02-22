@@ -56,10 +56,10 @@ class User:
     def validate_login(cls, data):
         user_valid = User.user_email(data)
         if not user_valid:
-            flash("Invalid Email/Password")
+            flash("Invalid Email/Password","login")
             return False
         if not bcrypt.check_password_hash(user_valid.password, data["password"]):
-            flash("Invalid Email/Password")
+            flash("Invalid Email/Password""login")
             return False
         return True
     
@@ -69,7 +69,7 @@ class User:
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL('login_schema').query_db(query,email)
         if len(results) >= 1:
-            flash("Email Already In Use")
+            flash("Email Already In Use","register")
             is_valid=False
         return is_valid
 
@@ -77,16 +77,16 @@ class User:
     def validate_user(user):
         is_valid = True
         if len(user['first_name']) < 3:
-            flash("First Name must be at least 2 characters.")
+            flash("First Name must be at least 2 characters.","register")
             is_valid = False
         if len(user['last_name']) < 3:
-            flash("Last Name must be at least 2 characters.")
+            flash("Last Name must be at least 2 characters.","register")
             is_valid = False
         if len(user['password']) < 8:
-            flash("Password must be at least 8 characters.")
+            flash("Password must be at least 8 characters.","register")
             is_valid = False
         if user['password'] != user['confirm_password']:
             is_valid = False
-            flash("Password does not match")
+            flash("Password does not match","register")
         return is_valid
     
